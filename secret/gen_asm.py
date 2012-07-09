@@ -11,7 +11,7 @@ start:
     mov     ax,#0x0600 ; clear screen
     mov     cx,#0x0000
     mov     dx,#0x184f
-    mov     bh,#0xdf
+    mov     bh,#0x""" + attr + """
     int     0x10
     
     mov     ax,#0x1003
@@ -35,7 +35,7 @@ ascii = """
         int     0x10		
 
         mov     cx,#80			; length of our beautiful string.
-        mov     bx,#0x00df              ; page 0, attribute 7 (normal)
+        mov     bx,#0x00""" + attr + """       ; page 0, attribute 7 (normal)
         mov     bp,#mymsg
         mov     ax,#0x1301              ; write string, move cursor
         int     0x10"""
